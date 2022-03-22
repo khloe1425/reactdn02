@@ -1,0 +1,24 @@
+.home{
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+
+.header{
+    background-color: blue;
+    padding: 50px;
+}
+.content{
+    background-color: green;
+    padding: 50px;
+}
+
+.navComp{
+    background-color:greenyellow ;
+    padding: 50px;
+}
+
+.footer{
+    background-color: darkblue;
+    padding: 50px;
+}
