@@ -5,13 +5,19 @@ export default class HandleEvent extends Component {
     name = "Nguyen Thi Hoc Vien";
 
     renderName = () => {
-        alert("Ten HV:"+ this.name);
+        alert("Ten HV:" + this.name);
     }
 
     loadName = () => {
-        alert("Ten HV khi load web:"+ this.name);
+        alert("Ten HV khi load web:" + this.name);
     }
+
+    showAge = (age) => {
+        alert("tuoi hv: " + age);
+    }
+
     render() {
+        // bien cuc bo
         let age = 20;
 
         return (
@@ -26,6 +32,10 @@ export default class HandleEvent extends Component {
 
                 {/* chi chay khi nguoi dung click */}
                 <button onClick={this.renderName}>Show Name</button>
+
+                <button onClick={(event) => {
+                    this.showAge(age);
+                }}>Show Age</button>
             </div>
         )
     }

@@ -5,6 +5,10 @@ import FunctionComponent from './Component/FunctionComponent';
 import HomeComponent from './Component/BTComponent/HomeComponent';
 import BindingData from './BindingData/BindingData';
 import HandleEvent from './HandleEvent/HandleEvent';
+import DemoState from './DemoState/DemoState';
+import BTChangeCar from './DemoState/BTChangeCar/BTChangeCar';
+import BTChangeFontSize from './DemoState/BTChangeFontSize/BTChangeFontSize';
+import RenderWithArray from './RenderWithArray/RenderWithArray';
 
 // các thẻ html của react js là đối tương JSX
 //App la component chinh cua du an
@@ -22,7 +26,11 @@ function App() {
       {/* <BindingData/> */}
       {/* <p className='colorPrice'>Lorem ipsum dolor sit amet.</p> */}
    
-      <HandleEvent/>
+      {/* <HandleEvent/> */}
+      {/* <DemoState/> */}
+      {/* <BTChangeCar/> */}
+      {/* <BTChangeFontSize/> */}
+      <RenderWithArray/>
    
     </div>
   );
