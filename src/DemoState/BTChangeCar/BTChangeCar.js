@@ -11,7 +11,7 @@ export default class BTChangeCar extends Component {
         let newState = {
             imgCar: `./img/CarBasic/products/${color}-car.jpg`
         }
-
+   
         this.setState(newState);
     }
 

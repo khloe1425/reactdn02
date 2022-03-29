@@ -9,6 +9,8 @@ import DemoState from './DemoState/DemoState';
 import BTChangeCar from './DemoState/BTChangeCar/BTChangeCar';
 import BTChangeFontSize from './DemoState/BTChangeFontSize/BTChangeFontSize';
 import RenderWithArray from './RenderWithArray/RenderWithArray';
+import BTShoes from './Props/BTShoes/BTShoes';
+import BTXemChiTiet from './Props/BTXemChiTiet/BTXemChiTiet';
 
 // các thẻ html của react js là đối tương JSX
 //App la component chinh cua du an
@@ -30,7 +32,11 @@ function App() {
       {/* <DemoState/> */}
       {/* <BTChangeCar/> */}
       {/* <BTChangeFontSize/> */}
-      <RenderWithArray/>
+      {/* <RenderWithArray/> */}
+
+      {/* <BTShoes/> */}
+      
+      <BTXemChiTiet/>
    
     </div>
   );
