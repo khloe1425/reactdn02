@@ -11,12 +11,26 @@ export default class BTXemChiTiet extends Component {
         { "maSP": 3, "tenSP": "Iphone XS Max", "manHinh": "OLED, 6.5, 1242 x 2688 Pixels", "heDieuHanh": "iOS 12", "cameraSau": "Chính 12 MP & Phụ 12 MP", "cameraTruoc": "7 MP", "ram": "4 GB", "rom": "64 GB", "giaBan": 27000000, "hinhAnh": "./img/Phone/applephone.jpg" }
     ]
 
+    // khai báo biến cần lưu trữ data trong state
+    state = {
+        proObj: { "maSP": 1, "tenSP": "VinSmart Live", "manHinh": "AMOLED, 6.2, Full HD+", "heDieuHanh": "Android 9.0 (Pie)", "cameraTruoc": "20 MP", "cameraSau": "Chính 48 MP & Phụ 8 MP, 5 MP", "ram": "4 GB", "rom": "64 GB", "giaBan": 5700000, "hinhAnh": "./img/Phone/vsphone.jpg" },
+        number: 0,
+    }
+
+    renderChiTiet = (phone) => {
+        let newState = {
+            proObj: phone
+        }
+
+        this.setState(newState);
+    }
+
 
     renderPhone = () => {
 
         return this.phoneArray.map((phone) => {
             return <div className="col-4" key={`phone${phone.maSP}`}>
-                <ProductItem phone={phone} />
+                <ProductItem phone={phone} xemChiTiet={this.renderChiTiet}  />
 
             </div>
 
@@ -32,18 +46,11 @@ export default class BTXemChiTiet extends Component {
                     </div>
                 </div>
                 <div className="productDetail">
-                    <div className="row">
 
-                        <div className="col-4">
-                            <img src="..." alt="..." />
-                        </div>
-                        <div className="col-8">
-                            <h2>Thông số kỹ thuật</h2>
+                    
+                    <ChiTiet proObj={this.state.proObj} />
 
-                            <ChiTiet />
 
-                        </div>
-                    </div>
                 </div>
 
 

@@ -12,7 +12,13 @@ export default class ProductItem extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{tenSP}</h5>
                     <p className="card-text">{giaBan}</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <button className="btn btn-primary" onClick={() => { 
+                        //Lây dữ liệu của sản phẩm đang được click
+                            console.log(this.props.phone);
+                            let phoneData = this.props.phone
+                            this.props.xemChiTiet(phoneData);
+                     }}
+                    >Xem chi tiet</button>
                 </div>
             </div>
         )
