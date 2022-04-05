@@ -38,15 +38,99 @@ export default class BTGioHang extends Component {
         // spGioHang : maSP,tenSP,hinhAnh,giaBan
             
 
+        //sp mới được thêm vào giỏ hàng
         let sp = { maSP: spGioHang[0], tenSP: spGioHang[1], hinhAnh: spGioHang[2], giaBan: spGioHang[3], soLuong: 1 }
-        console.log(sp);
-        
-        let newState = {
-            //spread operater
-            gioHang:[...this.state.gioHang, sp]
-        }
+        // Kiểm tra sản phẩm có trong giỏ hàng chưa
+        //find => object thỏa đk tìm kiếm, findIndex => vị trị phần tử thỏa đk
+        let gioHangCapNhat = [...this.state.gioHang];
+        let spTK = gioHangCapNhat.find((spGioHang) => { 
+            //kiểm tra sản phẩm mới có trùng mã với sản phầm trong giả hàng ko?
+            return spGioHang.maSP === sp.maSP
+         })
+         
+         if(spTK){
+             //có sản phẩm trong giỏ hàng
+             spTK.soLuong +=1;
+         }else{
+             //thêm sp mới
+            // let newState = {
+            //     //spread operater
+            //     gioHang:[...this.state.gioHang, sp]
+            // }
+    
+            // this.setState(newState);
+            gioHangCapNhat.push(sp);
+         }
+
+         this.setState({
+             gioHang:gioHangCapNhat
+         });
+      
+
+
     }
 
+    xoaGioHang = (maSPXoa) => {
+        //C1: dựa vào mã tìm vị trí phần => splice() xóa phần khỏi mảng
+
+        //C2: filter => 1 mảng mới thỏa đk lọc
+        // gio Hang: sp 1, 2, 3
+        //=> xóa maSP 1 => sp 2,3 (lọc các sp không chứa mã 1 - maSPXoa)
+        let gioHangCapNhat = [...this.state.gioHang];
+        gioHangCapNhat = gioHangCapNhat.filter((sp) => { 
+            return sp.maSP !== maSPXoa
+         });
+
+        this.setState({
+            gioHang:gioHangCapNhat
+        })
+
+    }
+
+
+    tangGiamSL = (maSPSL, sl) => {
+
+        let gioHangCapNhat = [...this.state.gioHang];
+
+        let spTK = gioHangCapNhat.find(sp => sp.maSP === maSPSL);
+
+        if(spTK){
+            spTK.soLuong += sl;
+            if(spTK.soLuong <1){
+                alert("Số lượng không đúng");
+                //sl = 0 -1 => -1
+                //=> sl = 0 - -1 = 1
+                //C1 Ngăn không cho giảm xuống số 0 => luôn trở lại số mặc định là 1
+                // spTK.soLuong -= sl;
+
+                //C2 xóa sản phẩm khỏi giỏ hàng
+                this.xoaGioHang(maSPSL);
+                //sau khi xóa được thì thoát khỏi hàm
+                return;
+            }
+
+        }
+
+        this.setState({
+            gioHang:gioHangCapNhat
+        })
+
+    }
+
+
+    tinhTongSL = () => {
+        let {gioHang} = this.state;
+
+        // map => return trả về 1 mảng mới
+        // trả về 1 kết quả tính toán (forEach, for, reduce)
+        // sum là kết quả tổng cuối cùng nhận đc
+
+        let sum =  gioHang.reduce((tongSL,sp) => { 
+                return tongSL +=sp.soLuong;
+         }, 0);
+
+        return sum;
+    }
 
     render() {
         return (
@@ -81,14 +165,14 @@ export default class BTGioHang extends Component {
                             </li>
                         </ul>
                         <div>
-                            <button data-toggle="modal" data-target="#exampleModal" className='btn btn-success'  >Giỏ hàng (0)</button>
+                            <button data-toggle="modal" data-target="#exampleModal" className='btn btn-success'  >Giỏ hàng ({this.tinhTongSL()})</button>
                         </div>
                     </div>
                 </nav>
 
                 <ProductList mangDT={this.phoneArray}  themGioHang={this.themGioHang}  />
 
-                <Cart gioHang={this.state.gioHang} />
+                <Cart gioHang={this.state.gioHang} xoaGioHang={this.xoaGioHang}  tangGiamSL={this.tangGiamSL} />
 
 
             </div>

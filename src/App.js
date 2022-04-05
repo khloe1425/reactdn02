@@ -15,33 +15,43 @@ import BTGioHang from './Props/BTGioHang/BTGioHang';
 
 // các thẻ html của react js là đối tương JSX
 //App la component chinh cua du an
+
+import { Provider } from 'react-redux';
+import { store } from './redux/configStore';
+import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
+
 function App() {
   return (
-    <div className="App">
-     {/* hello dn02
+    <Provider store={store}>
+      <div className="App">
+        {/* hello dn02
      
       <ClassComponent/>
       <ClassComponent/>
       <FunctionComponent/> */}
 
-      {/* <HomeComponent/> */}
+        {/* <HomeComponent/> */}
 
-      {/* <BindingData/> */}
-      {/* <p className='colorPrice'>Lorem ipsum dolor sit amet.</p> */}
-   
-      {/* <HandleEvent/> */}
-      {/* <DemoState/> */}
-      {/* <BTChangeCar/> */}
-      {/* <BTChangeFontSize/> */}
-      {/* <RenderWithArray/> */}
+        {/* <BindingData/> */}
+        {/* <p className='colorPrice'>Lorem ipsum dolor sit amet.</p> */}
 
-      {/* <BTShoes/> */}
-      
-      {/* <BTXemChiTiet/> */}
+        {/* <HandleEvent/> */}
+        {/* <DemoState/> */}
+        {/* <BTChangeCar/> */}
+        {/* <BTChangeFontSize/> */}
+        {/* <RenderWithArray/> */}
 
-      <BTGioHang/>
-   
-    </div>
+        {/* <BTShoes/> */}
+
+        {/* <BTXemChiTiet/> */}
+
+        {/* <BTGioHang /> */}
+
+        <BTGioHangRedux/>
+
+      </div>
+    </Provider>
+
   );
 }
 
