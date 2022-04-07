@@ -19,6 +19,7 @@ import BTGioHang from './Props/BTGioHang/BTGioHang';
 import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
 import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
+import GameTaiXiu from './DemoRedux/GameTaiXiu/GameTaiXiu';
 
 function App() {
   return (
@@ -47,7 +48,9 @@ function App() {
 
         {/* <BTGioHang /> */}
 
-        <BTGioHangRedux/>
+        {/* <BTGioHangRedux/> */}
+
+        <GameTaiXiu/>
 
       </div>
     </Provider>

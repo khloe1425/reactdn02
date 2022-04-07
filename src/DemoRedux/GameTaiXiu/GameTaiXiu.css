@@ -1,0 +1,28 @@
+.gameTX {
+    background-image: url(../../asset/img/Game/bgGame.png);
+    height: 100vh;
+}
+
+.imgGroup img{
+    width: 50px;
+}
+
+.btnGame{
+   padding: 40px;
+   font-size: 2rem;
+   font-weight: 700;
+   color: white;
+   background-color: cornflowerblue; 
+}
+
+.btnPlay{
+    padding: 20px 30px; 
+    background-color: greenyellow; 
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+p{
+    font-size: 2rem;
+    font-weight: 700;
+}

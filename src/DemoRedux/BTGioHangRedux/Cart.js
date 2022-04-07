@@ -7,24 +7,51 @@ class Cart extends Component {
     console.log(this.props.gioHang);
     return this.props.gioHang.map((sp) => {
       return <tr key={`gioHang${sp.maSP}`}>
-          <td>{sp.maSP}</td>
-          <td>
-            <img style={{ width: '20px' }} src={sp.hinhAnh} alt="" />
-          </td>
-          <td>{sp.tenSP}</td>
-          <td>
-              <button className='btn btn-success'>+</button>
-              <span>{sp.soLuong}</span>
-              <button className='btn btn-danger'>-</button>
-          </td>
-          <td>{sp.giaBan.toLocaleString()}</td>
-          <td>{ (sp.soLuong * sp.giaBan).toLocaleString()}</td>
-          <td>
-              <button className='btn btn-danger'>Xoa</button>
-          </td>
+        <td>{sp.maSP}</td>
+        <td>
+          <img style={{ width: '20px' }} src={sp.hinhAnh} alt="" />
+        </td>
+        <td>{sp.tenSP}</td>
+        <td>
+          <button onClick={() => {
+            this.tangGiamSL(sp.maSP, 1)
+          }} className='btn btn-success'>+</button>
+          <span>{sp.soLuong}</span>
+          <button onClick={() => {
+            this.tangGiamSL(sp.maSP, -1)
+          }} className='btn btn-danger'>-</button>
+        </td>
+        <td>{sp.giaBan.toLocaleString()}</td>
+        <td>{(sp.soLuong * sp.giaBan).toLocaleString()}</td>
+        <td>
+          <button onClick={() => {
+            this.xoaGioHang(sp.maSP)
+          }} className='btn btn-danger'>Xoa</button>
+        </td>
       </tr>
     })
   }
+
+  xoaGioHang = (maSPXoa) => {
+    let action = {
+      type: "XOA_GIO_HANG",
+      maSPXoa: maSPXoa
+    }
+    this.props.dispatch(action);
+
+  }
+
+  tangGiamSL = (maSP, sl) => {
+    let action = {
+      type: "TANG_GIAM_SL",
+      maSPSL: maSP,
+      soLuong: sl
+    }
+
+    this.props.dispatch(action);
+
+  }
+
 
   render() {
 
