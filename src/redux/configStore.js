@@ -1,5 +1,6 @@
 import { combineReducers, createStore } from "redux";
 
+import { gameReducer } from "./Reducers/gameReducer";
 // reducer: state khi đưa lên redux
 
 const gioHang = []
@@ -67,10 +68,15 @@ const rootReducer = combineReducers({
                  return [...state]
             default: return state;
         }
+    },
+
+    // gameReducer:gameReducer
+    gameReducer
 
 
 
-    }
+
+
 
     //xemChiTietReducer
     //loginReducer
