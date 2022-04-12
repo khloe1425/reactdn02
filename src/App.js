@@ -20,6 +20,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/configStore';
 import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
 import GameTaiXiu from './DemoRedux/GameTaiXiu/GameTaiXiu';
+import QLND from './DemoRedux/QLND/QLND';
 
 function App() {
   return (
@@ -50,7 +51,9 @@ function App() {
 
         {/* <BTGioHangRedux/> */}
 
-        <GameTaiXiu/>
+        {/* <GameTaiXiu/> */}
+
+        <QLND/>
 
       </div>
     </Provider>

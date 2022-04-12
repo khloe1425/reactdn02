@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from "redux";
 
 import { gameReducer } from "./Reducers/gameReducer";
+import { QLNDReducer } from "./Reducers/QLNDReducer";
 // reducer: state khi đưa lên redux
 
 const gioHang = []
@@ -71,15 +72,14 @@ const rootReducer = combineReducers({
     },
 
     // gameReducer:gameReducer
-    gameReducer
-
-
-
-
-
+    gameReducer,
+    QLNDReducer
 
     //xemChiTietReducer
     //loginReducer
 });
 
-export const store = createStore(rootReducer);
+export const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );

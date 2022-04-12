@@ -1,25 +1,55 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class XiNgau extends Component {
+
+class XiNgau extends Component {
+  
   render() {
+    console.log(this.props.mangXiNgau);
+    
     return (
       <div className="row">
         <div className="col-4">
-          <button className='btn btnGame'>TÀI</button>
+          <button
+           onClick={() => { 
+              let action = {
+                type:"DAT_CUOC",
+                banChon:true
+              }
+
+              this.props.dispatch(action)
+
+            }} className='btn btnGame'>TÀI</button>
         </div>
         <div className="col-4">
           <div className='imgGroup'>
-            <img src="./img/Game/1.png" alt="" />
-            <img src="./img/Game/2.png" alt="" />
-            <img src="./img/Game/3.png" alt="" />
+            <img src={this.props.mangXiNgau[0].hinh} alt="" />
+            <img src={this.props.mangXiNgau[1].hinh} alt="" />
+            <img src={this.props.mangXiNgau[2].hinh} alt="" />
             {/* <img src="../../asset/img/Game/2.png" alt="" /> */}
             {/* <img src={xingau2} alt="" /> */}
           </div>
         </div>
         <div className="col-4">
-          <button className='btn btnGame'>XỈU</button>
+          <button onClick={() => { 
+              let action = {
+                type:"DAT_CUOC",
+                banChon:false
+              }
+
+              this.props.dispatch(action)
+
+            }} className='btn btnGame'>XỈU</button>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (rootReducer) => { 
+      return {
+        mangXiNgau: rootReducer.gameReducer.mangXiNgau
+      }
+ }
+
+export default connect(mapStateToProps)(XiNgau);
