@@ -13,12 +13,26 @@ class TableNguoiDung extends Component {
             <td>{nd.taiKhoan}</td>
             <td>{nd.hoTen}</td>
             <td>{nd.matKhau}</td>
-            <td>{nd.emial}</td>
+            <td>{nd.email}</td>
             <td>{nd.sdt}</td>
-            <td>{nd.loaiND == 'KH' ? "Khách Hàng":"Nhân Viên" }</td>
+            <td>{nd.loaiND === 'KH' ? "Khách Hàng":"Nhân Viên" }</td>
             <td>
-              <button className='btn btn-danger'>Xóa</button>
-              <button className='btn btn-info'>Xem</button>
+              <button onClick={() => { 
+                  let action ={
+                    type:"XOA_ND",
+                    taiKhoanXoa: nd.taiKhoan
+                  }
+                  this.props.dispatch(action);
+                  
+               }}  className='btn btn-danger'>Xóa</button>
+              <button onClick={() => { 
+                  let action = {
+                    type:"XEM_THONG_TIN",
+                    tkNguoiDung: nd.taiKhoan
+                  }
+                  this.props.dispatch(action);
+
+               }} className='btn btn-info'>Xem</button>
             </td>
         </tr>
 

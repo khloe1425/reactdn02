@@ -21,6 +21,7 @@ import { store } from './redux/configStore';
 import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
 import GameTaiXiu from './DemoRedux/GameTaiXiu/GameTaiXiu';
 import QLND from './DemoRedux/QLND/QLND';
+import LifeCycleParent from './LifeCycleDemo/LifeCycleParent';
 
 function App() {
   return (
@@ -53,7 +54,9 @@ function App() {
 
         {/* <GameTaiXiu/> */}
 
-        <QLND/>
+        {/* <QLND/> */}
+        
+        <LifeCycleParent/>
 
       </div>
     </Provider>
