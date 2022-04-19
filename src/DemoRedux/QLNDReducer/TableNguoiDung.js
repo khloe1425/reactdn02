@@ -17,7 +17,14 @@ class TableNguoiDung extends Component {
             <td>{nd.sdt}</td>
             <td>{nd.loaiND === 'KH' ? "Khách Hàng":"Nhân Viên" }</td>
             <td>
-              <button className='btn btn-danger'>Xóa</button>
+              <button onClick={() => { 
+                  let action ={
+                    type:"XOA_ND",
+                    taiKhoanXoa: nd.taiKhoan
+                  }
+                  this.props.dispatch(action);
+                  
+               }}  className='btn btn-danger'>Xóa</button>
               <button onClick={() => { 
                   let action = {
                     type:"XEM_THONG_TIN",
